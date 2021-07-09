@@ -1,0 +1,18 @@
+.MuiSvgIcon-root {
+    transform: scale(3);
+    color:blueviolet;
+    padding-right: 5px;
+    padding-top: 5px;
+    margin-top: 5px;
+    
+}
+
+h1 {
+    padding-left: 7px;
+    margin: 3px;
+}
+
+.habit-display {
+    display : inline;
+    
+}

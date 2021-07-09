@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 8080 ;
 
 /*importing router definations*/
 const AuthRoute = require("./routes/authRoute");
-
+const HabitRoute = require("./routes/habitRoute")
 /* defining middlewares */
 app.use(cors())
 
@@ -18,7 +18,7 @@ app.use(express.json())
 
 /* Routing */
 app.use('/api/v1',AuthRoute);
-
+app.use('/api/v1',HabitRoute);
 /* Database connection and server setup */
 
 mongoose.connect(process.env.DATABASE_URL,
