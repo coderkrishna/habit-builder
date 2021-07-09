@@ -66,9 +66,9 @@ const AddHabit = () => {
 
   // to handle update the Habit when there is Habit in state and the user had came from clicking the Habit update icon
   const updateHabit = async () => {
-    //TODO: update Habit method
+    
     try {
-        await axios.put("http://localhost:8080/api/v1/updateHabit")
+        await axios.put("http://localhost:8080/api/v1/updateHabit",{name : habitToUpdate.name})
         .then(() => {
             toast("succesfully updated")
         })      

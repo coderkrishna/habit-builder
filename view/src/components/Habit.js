@@ -5,13 +5,13 @@ import { Row, Col } from "reactstrap";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { MdDelete, MdEdit } from "react-icons/md";
 import axios from "axios";
-
+import {history} from "react-router-dom"
 import {toast} from "react-toastify"
 
 function Habit({habit}) {
 
     const deleteHabit = () => {
-          axios.delete("http://localhost:8080/api/v1/deleteContact")
+          axios.delete("http://localhost:8080/api/v1/deleteContact",)
           .then(
               () => {
                   toast('deleted',{type : "error"});
@@ -23,9 +23,8 @@ function Habit({habit}) {
     }
 
     const updateImpHabit = () => {
-        //TODO: update (star) contact, use contactKey
         
-        axios.put("http://localhost:8080/api/v1/updateImpHabit")
+        axios.put("http://localhost:8080/api/v1/updateImpHabit",{isStar : true})
         .then(()=>{
           toast("updated")
         })
@@ -33,11 +32,16 @@ function Habit({habit}) {
       };
 
     const updateHabit = () => {
-        
+       
+        axios.put("http://localhost:8080/api/v1/updateHabit",{name : habit.name})
+        .then(()=>{
+          toast("updated")
+        })
+        .catch(err=>console.log(err))
     }  
 
      const viewSingleHabit = () => {
-
+          return history.push('/habit-view')
      }
 
     return (
