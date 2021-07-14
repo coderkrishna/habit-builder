@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import {Container} from "reactstrap"
 import reducer from  "./context/reducer"
 import { HabitContext } from "./context/Context"
-import {ViewHabit } from  "./components/viewHabit"
+import ViewHabit  from  "./components/viewHabit"
 import {removeUserSession} from "./Utils/Common"
 function App() {
     

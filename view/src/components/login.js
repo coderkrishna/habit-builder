@@ -24,7 +24,7 @@ export default function Login(props){
         const handleLogin = () => {
             setError(null);
             setLoading(true);
-            axios.post('http://localhost:8080/api/v1/login', { email: useremail.value, password: password.value }).then(response => {
+            axios.post('https://habit-builder-api.herokuapp.com/api/v1/login', { email: useremail.value, password: password.value }).then(response => {
               setLoading(false);
               setUserSession(response.data.token, response.data.user);
               props.history.push('/home');

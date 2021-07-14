@@ -54,10 +54,13 @@ const AddHabit = () => {
   }, [habitToUpdate]);
 
   
-  // setting Habit to firebase DB
+
   const addHabit = async () => {
     try {
-      await axios.post("http://localhost:8080/api/v1/addHabit",{ name : habitName,time : time , frequency : frequency})
+      await axios.post("https://habit-builder-api.herokuapp.com/api/v1/addHabit",{ name : habitName,time : time , frequency : frequency})
+      .then(() => {
+          history.push("/home")
+      })
     } catch (error) {
        toast(error)
     }
@@ -68,9 +71,10 @@ const AddHabit = () => {
   const updateHabit = async () => {
     
     try {
-        await axios.put("http://localhost:8080/api/v1/updateHabit",{name : habitToUpdate.name})
+        await axios.put("https://habit-builder-api.herokuapp.com/api/v1/updateHabit",{name : habitToUpdate.name})
         .then(() => {
             toast("succesfully updated")
+            history.push('/home')
         })      
     } catch (error) {
       toast(error)

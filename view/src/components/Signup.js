@@ -25,7 +25,7 @@ export default function SignUp(props) {
         const handleSignup = () => {
             setError(null);
             setLoading(true);
-            axios.post('http://localhost:8080/api/v1/register', { name : name.value, email : email.value , phone : contactno.value , password: password.value }).then(response => {
+            axios.post('https://habit-builder-api.herokuapp.com/api/v1/register', { name : name.value, email : email.value , phone : contactno.value , password: password.value }).then(response => {
               setLoading(false);
               console.log("executed")
               props.history.push('/sign-in');

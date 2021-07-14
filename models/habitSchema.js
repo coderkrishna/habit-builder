@@ -7,13 +7,14 @@ const habitSchema = mongoose.Schema({
         trim : true
     },
     time : {
-        type : String,
+        type : Number,
         trim : true,
     },
     frequency : {
-        type : Array,
+        type : String,
+        trim : true
     }
-})
+},{timestamps : true})
 
 const habitModel = mongoose.model('habits',habitSchema)
 module.exports = habitModel

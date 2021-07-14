@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
 import { Row, Col } from "reactstrap";
-
+import {useHistory} from "react-router-dom"
 // icons
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { MdDelete, MdEdit } from "react-icons/md";
 import axios from "axios";
-import {history} from "react-router-dom"
 import {toast} from "react-toastify"
 
 function Habit({habit}) {
 
+    const history = useHistory(); 
     const deleteHabit = () => {
-          axios.delete("http://localhost:8080/api/v1/deleteContact",)
+          axios.delete("https://habit-builder-api.herokuapp.com/api/v1/deleteContact",)
           .then(
               () => {
                   toast('deleted',{type : "error"});
@@ -24,7 +24,7 @@ function Habit({habit}) {
 
     const updateImpHabit = () => {
         
-        axios.put("http://localhost:8080/api/v1/updateImpHabit",{isStar : true})
+        axios.put("https://habit-builder-api.herokuapp.com/api/v1/updateImpHabit",{isStar : true})
         .then(()=>{
           toast("updated")
         })
@@ -33,7 +33,7 @@ function Habit({habit}) {
 
     const updateHabit = () => {
        
-        axios.put("http://localhost:8080/api/v1/updateHabit",{name : habit.name})
+        axios.put("https://habit-builder-api.herokuapp.com/api/v1/updateHabit",{name : habit.name})
         .then(()=>{
           toast("updated")
         })
@@ -41,7 +41,7 @@ function Habit({habit}) {
     }  
 
      const viewSingleHabit = () => {
-          return history.push('/habit-view')
+          history.push('/habit-view');
      }
 
     return (

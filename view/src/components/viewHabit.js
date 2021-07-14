@@ -23,8 +23,7 @@ const ViewHabit = () => {
   return (
     <Container>
       <Row className="mt-5 mb-5">
-     { if(habit?.frequency === "1"){
-         for(let i = 0 ; i < 7 ; i++){
+
         <Col md="5" className="offset-md-3">
           <Card className="pt-3 pb-5">
             <CardBody className="text-center ">
@@ -36,30 +35,10 @@ const ViewHabit = () => {
                  <span><AccessAlarmsIcon/>
                  <h2>{habit?.time}</h2>
                  </span>
-                `Day ${i+1}`
               </CardSubtitle>
             </CardBody>
           </Card>
         </Col>
-         }
-    }else{
-        for(let i = 0 ; i < 21 ; i++){
-            <Col md="5" className="offset-md-3">
-              <Card className="pt-3 pb-5">
-                <CardBody className="text-center ">
-                  <CardTitle className="text-primary mt-3">
-                    <h1>{habit?.name}</h1>
-                  </CardTitle>
-                  <CardSubtitle>
-                     <span><AccessAlarmsIcon/>
-                     <h2>{habit?.time}</h2>
-                     </span>
-                    `Day ${i+1}`
-                  </CardSubtitle>
-                </CardBody>
-              </Card>
-            </Col>
-    }
       </Row>
     </Container>
   );
