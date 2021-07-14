@@ -3,6 +3,9 @@ const habitSchema = require("../models/habitSchema")
 //POST
 const addHabit = async (req,res,next) => {
     
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
     const habit = new habitSchema({
         name : req.body.name,
         time  : req.body.time,
@@ -27,6 +30,9 @@ const addHabit = async (req,res,next) => {
 //GET
 const getHabits = async (req,res,next) => {
    
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
     let habits = await habitSchema.find()
     
     if(habits){
@@ -44,6 +50,10 @@ const getHabits = async (req,res,next) => {
 
 //PUT
 const updateHabit = async (req,res,next) => {
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
     let updatedHabit = await habitSchema.updateOne({_id : req.params.id},
         {
             $set :{
@@ -66,6 +76,8 @@ const updateHabit = async (req,res,next) => {
 
 //DELETE
 const deleteHabit = async (req,res,next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     let result = await habitSchema.deleteOne({_id : req.params.id});
     if(!result){
       return res.json({

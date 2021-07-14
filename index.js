@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 8080 ;
 const AuthRoute = require("./routes/authRoute");
 const HabitRoute = require("./routes/habitRoute")
 /* defining middlewares */
+
 app.use(cors())
 
 app.use(express.json())

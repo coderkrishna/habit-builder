@@ -8,6 +8,9 @@ const jwt = require('jsonwebtoken');
 
 
 const register = async (req, res, next) => {
+    
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
     User.findOne({email : String(req.body.email).toLowerCase()})
      .then(user => {
@@ -71,6 +74,9 @@ const register = async (req, res, next) => {
 
 const login =  (req, res, next) => {
 
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    
     var email = String(req.body.email).toLowerCase();
     var password = req.body.password;
     
